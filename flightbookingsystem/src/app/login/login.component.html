@@ -1,0 +1,27 @@
+<body>
+    <section class="container">
+        <div class="menu">
+            <ul>
+                <li><a routerLink="/register" >Sign Up</a></li>
+                <li><a routerLink="/about" >About</a></li>
+            </ul>
+            <h1 class="header-left">Aero-Fusion: Soaring Above the Clouds</h1>
+        </div>
+
+        <div class="form-container">
+            <form class="form">
+                <h2>Login</h2><br>
+                <!-- Add the alert here -->
+                <div class="alert alert-danger" role="alert" *ngIf="showAlert">
+                    Oops! The email or password you entered is incorrect. Please try again.
+                </div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Enter your email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Password" required>
+                <button id="login" type="submit" (click)="login()">login</button>
+                <p class="link">Don't have an user account? <a [routerLink] = "['/register']">Sign up</a></p>
+            </form>
+        </div>
+    </section>
+</body>

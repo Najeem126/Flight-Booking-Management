@@ -1,0 +1,52 @@
+<app-header></app-header>
+<!-- <div class="container flight-table" *ngIf="bookings; else err">
+    <div class="headers" >
+        <h2 class="title">Your Bookings</h2>
+    </div>
+    <table>
+        <thead>
+            <th>Booking Id</th>
+            <th>PNR</th>
+            <th>SeatNumbers</th>
+            <th>Flight Id</th>
+            <th></th>
+        </thead>
+        <tbody class="table-body">
+            <tr *ngFor ="let booking of books">
+                <td>{{booking.bookingId}}</td>
+                <td>{{booking.pnr}}</td>
+                <td>{{booking.seatNumbers}}</td>
+                <td>{{booking.flight.flightId}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+<div class="container flight-cards" *ngIf="bookings; else err">
+    <div class="headers">
+      <h2 class="title">Your Bookings</h2>
+    </div>
+    <div class="card-container">
+      <div class="card" *ngFor="let booking of books">
+        <div class="card-header">
+          <h3>PNR: {{booking.pnr}}</h3>
+          <div class="card-actions">
+          </div>
+        </div>
+        <div class="card-body">
+          <p>User Name: {{booking.passenger.userName}}</p>
+          <p>Booking Id: {{booking.bookingId}}</p>
+          <p>Flight Name: {{booking.flight.flightName }}</p>
+          <p>SeatNumbers: {{booking.seatNumbers}}</p>
+          <p>Flight Date: {{booking.flight.date}}</p>
+          <p>Flight time: {{booking.flight.timing}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<ng-template #err>
+    <div class="error-message">
+      <p>Error occurred while fetching Bookings.</p>
+    </div>
+  </ng-template>

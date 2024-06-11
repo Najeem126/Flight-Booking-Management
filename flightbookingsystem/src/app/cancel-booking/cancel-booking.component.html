@@ -1,0 +1,14 @@
+<app-header></app-header>
+
+<div class="form-wraper">
+    <div class="cancellation-form">
+        <h2 class="text-center text-info">Cancel Booking</h2>
+        <div class="group">
+            <label for="">Enter PNR:</label>
+            <input type="text" class="form-control"[(ngModel)]="PNR" placeholder="PNR" name="name" min="1" required>
+        </div>
+        <div class="action">
+            <button class="save-button" (click)="cancellation(PNR)">Submit</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<app-admin-header></app-admin-header>
+<!-- <div class="container flight-table" *ngIf="fli else err">
+    <div class="headers" >
+        <h2 class="title">Manage Flights</h2>
+        <button class="btn add" (click)="openForm()">Add Flight</button>
+    </div>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Capacity</th>
+            <th>Date</th>
+            <th>Flight Class</th>
+            <th>Flight Name</th>
+            <th>Timing</th>
+        </thead>
+        <tbody class="table-body">
+            <tr *ngFor ="let flight of flights">
+                <td>{{flight['flightId']}}</td>
+                <td>{{flight['capacity']}}</td>
+                <td>{{flight['date']}}</td>
+                <td>{{flight['flightClass']}}</td>
+                <td>{{flight['flightName']}}</td>
+                <td>{{flight['timing']}}</td>
+                <td><button class="edit" (click)="openForm(flight)">Edit</button></td>
+                <td><button class="delete" (click)="deleteFlight(flight.flightId)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+<div class="container flight-cards" *ngIf="flights; else err">
+  <div class="headers">
+    <h2 class="title">Manage Flights</h2>
+    <button class="btn add" (click)="openForm()">Add Flight</button>
+  </div>
+  <div class="card-container">
+    <div class="card" *ngFor="let flight of flights">
+      <div class="card-header">
+        <h3>{{ flight['flightName'] }}</h3>
+        <div class="card-actions">
+          <button class="edit" (click)="openForm(flight)">Edit</button>
+          <button class="delete" (click)="deleteFlight(flight['flightId'])">Delete</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Flight ID: {{ flight['flightId'] }}</p>
+        <p>Capacity: {{ flight['capacity'] }}</p>
+        <p>Route Id: {{ flight.route.routeId }}</p>
+        <p>From: {{ flight.route.source }}</p>
+        <p>Destination: {{ flight.route.destination }}</p>
+        <p>Date: {{ flight['date'] }}</p>
+        <p>Flight Class: {{ flight['flightClass'] }}</p>
+        <p>Timing: {{ flight['timing'] }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #err>
+  <div class="error-message">
+    <p>Error occurred while fetching flights.</p>
+  </div>
+</ng-template>
+
+
+
+<div class="form-wraper" *ngIf="showForm">
+    <div class="flight-form">
+        <h2 class="text-center text-info">{{formHeader}}</h2>
+        <div class="group">
+            <label for="">Flight Name:</label>
+            <input type="text" class="form-control"[(ngModel)]="flightName" placeholder="Flight Name" name="name" min="1" required>
+        </div>
+        <div class="group">
+            <label for="">Flight Class:</label>
+            <input type="text" class="form-control"[(ngModel)]="flightClass" name="class" placeholder="Flight Class" min="1" required>
+        </div>
+        <div class="group">
+            <label for="">Flight Capacity:</label>
+            <input type="number" class="form-control"[(ngModel)]="capacity" name="capacity" placeholder="Flight Capacity" min="1" required>
+        </div>
+        <div class="group">
+          <label for="">Route Id:</label>
+          <input type="number" class="form-control"[(ngModel)]="route.routeId" name="routeId" placeholder="Route Id" min="1" required>
+      </div>
+        <div class="group">
+            <label for="">Date:</label>
+            <input type="text" class="form-control"[(ngModel)]="date" name="date" placeholder="Date in yyyy-mm-dd" min="1" required>
+        </div>
+        <div class="group">
+            <label for="">Time:</label>
+            <input type="time" class="form-control"[(ngModel)]="timing" name="timing" placeholder="Time" min="1" required>
+        </div>
+
+        <div class="action">
+            <button class="save-button" (click)="saveFlight()">Save</button>
+            <button class="cancel-button"(click)="closeForm()">Cancel</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<app-admin-header></app-admin-header>
+<!-- <div class="container route-cards" *ngIf="routes; else err">
+    <div class="headers">
+      <h2 class="title">Manage Routes</h2>
+      <button class="btn add" (click)="openForm()">Add Routes</button>
+    </div>
+    <div class="card-container">
+      <div class="card" *ngFor="let route of routes">
+        <div class="card-header">
+          <h3>{{route['source'] }} To {{route['destination'] }}</h3>
+          <div class="card-actions">
+            <button class="edit" (click)="openForm(route)">Edit</button>
+            <button class="delete" (click)="deleteRoute(route['routeId'])">Delete</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>Route ID: {{ route['routeId'] }}</p>
+          <p>From: {{ route['source'] }}</p>
+          <p>Destination {{ route['destination'] }}</p>
+          <p>Flight Class: {{route.flight.flightId}}</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <div class="container flight-table" *ngIf="routes; else err">
+    <div class="headers" >
+        <h2 class="title">Manage Routes</h2>
+        <button class="btn add" (click)="openForm()">Add Route</button>
+    </div>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>From</th>
+            <th>Destination</th>
+            <!-- <th>Fligth Name</th>
+            <th>Flight Id</th> -->
+        </thead>
+        <tbody class="table-body">
+            <tr *ngFor ="let route of routes">
+                <td>{{route['routeId']}}</td>
+                <td>{{route['source']}}</td>
+                <td>{{route['destination']}}</td>
+                <!-- <td>{{route.flight.flightName}}</td>
+                <td>{{route.flight.flightId}}</td> -->
+                <td><button class="edit" (click)="openForm(route)">Edit</button></td>
+                <td><button class="delete" (click)="deleteRoute(route.routeId)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+  <ng-template #err>
+    <div class="error-message">
+      <p>Error occurred while fetching routes.</p>
+    </div>
+  </ng-template>
+
+  <div class="form-wraper" *ngIf="showForm">
+    <div class="flight-form">
+        <h2 class="text-center text-info">{{formHeader}}</h2>
+        <div class="group">
+            <label for="">Source:</label>
+            <input type="text" class="form-control"[(ngModel)]="source" placeholder="Source" name="source" min="1" required>
+        </div>
+        <div class="group">
+            <label for="">Destination:</label>
+            <input type="text" class="form-control"[(ngModel)]="destination" name="destination" placeholder="destination" min="1" required>
+        </div>
+        <!-- <div class="group">
+            <label for="">FlightId:</label>
+            <input type="number" class="form-control"[(ngModel)]="flight.flightId" name="flightId" placeholder="flightId" min="1" required>
+        </div> -->
+
+        <div class="action">
+            <button class="save-button" (click)="saveRoute()">Save</button>
+            <button class="cancel-button"(click)="closeForm()">Cancel</button>
+        </div>
+    </div>
+</div>

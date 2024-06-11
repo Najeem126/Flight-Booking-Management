@@ -1,0 +1,26 @@
+<body style="background-image: url('https://i.pinimg.com/originals/ca/ab/cc/caabcc6d01a2212b0f1f183893182d27.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+    <app-header></app-header>
+    <h2 style="color: white;">Welcome:  <span style="color: rgb(40, 255, 7); font-style:normal;" class="nj">{{currentUser}}</span></h2>
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <h2>Available Flights</h2>
+                <button (click)="allFlights()">Click here</button>
+            </div>
+            <div class="card">
+                <h2>Your Bookings</h2>
+                <button (click)="yourBooking()">Click here</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card">
+                <h2>New Booking</h2>
+                <button (click)="newBooking()">Click here</button>
+            </div>
+            <div class="card">
+                <h2>Cancel Booking</h2>
+                <button (click)="cancelBooking()">Click here</button>
+            </div>
+        </div>
+    </div>
+</body>

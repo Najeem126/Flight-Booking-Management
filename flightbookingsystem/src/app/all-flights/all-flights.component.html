@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="container flight-cards" *ngIf="flights; else err">
+    <div class="headers">
+      <h2 class="title">Available Flights</h2>
+    </div>
+    <div class="card-container">
+      <div class="card" *ngFor="let flight of flights">
+        <div class="card-header">
+          <h3>{{ flight['flightName'] }}</h3>
+          <div class="card-actions">
+          </div>
+        </div>
+        <div class="card-body">
+          <p>Flight ID: {{ flight['flightId'] }}</p>
+          <p>Capacity: {{ flight['capacity'] }}</p>
+          <p>Date: {{ flight['date'] }}</p>
+          <p>Flight Class: {{ flight['flightClass'] }}</p>
+          <p>Timing: {{ flight['timing'] }}</p>
+          <p>From: {{ flight.route.source }}</p>
+          <p>Destination: {{ flight.route.destination }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #err>
+    <div class="error-message">
+      <p>Error occurred while fetching flights.</p>
+    </div>
+  </ng-template>
+

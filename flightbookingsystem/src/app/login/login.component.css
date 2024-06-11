@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url("/assets/img1.webp");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+ul {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li {
+    margin-right: 62px;
+    margin-top: 27px;
+    font-size: 16px;
+    display: block;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover {
+    color: aqua;
+}
+
+.form-container {
+    position: absolute;
+    top: 50%; /* Place the container 50% from the top of the viewport */
+    left: 25%; /* Place the container 50% from the left of the viewport */
+    transform: translate(-50%, -50%); /* Move the container back by 50% of its own width and height */
+    background-color: transparent; /* Make the container transparent */
+}
+
+
+.form {
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form .link {
+    margin-top: 15px;
+}
+
+.form button {
+    background-color:  #68cfe1; /* Green background */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.form button:hover {
+    background-color: #4CAF50;
+}
+
+.form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.header-left {
+    text-align: left;
+    color: #3498db; /* Change this to any color you like */
+    font-size: 2em; /* Change this to adjust the size of the header */
+    padding: 10px; /* Change this to adjust the padding around the header */
+}
+
+
